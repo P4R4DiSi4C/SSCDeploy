@@ -5,9 +5,9 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'dashboard',
-    component: () => import('../views/Dashboard.vue')
+    path: "/",
+    name: "dashboard",
+    component: () => import("../views/Dashboard.vue")
   }
 ];
 

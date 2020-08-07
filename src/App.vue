@@ -1,13 +1,26 @@
 <template>
   <div id="app">
+    <task-bar />
     <div id="app__body">
+      <side-bar />
       <div id="app__body__content">
-        <h1>DASHBOARD</h1>
+        <router-view />
       </div>
     </div>
   </div>
 </template>
 
+<script>
+import TaskBar from "@/components/TaskBar";
+import SideBar from "@/components/SideBar";
+
+export default {
+  components: {
+    TaskBar,
+    SideBar
+  }
+};
+</script>
 
 <style lang="scss">
 body {

@@ -1,6 +1,6 @@
 "use strict";
 
-const path = require('path')
+const path = require("path");
 import { app, protocol, BrowserWindow, nativeTheme, ipcMain } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS_DEVTOOLS } from "electron-devtools-installer";
@@ -10,8 +10,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 
-nativeTheme.themeSource = 'light';
-
+nativeTheme.themeSource = "light";
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -29,7 +28,7 @@ async function createWindow() {
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
       contextIsolation: true,
-      preload: path.resolve(__dirname, 'preload.js')
+      preload: path.resolve(__dirname, "preload.js")
     }
   });
 
@@ -95,6 +94,6 @@ if (isDevelopment) {
   }
 }
 
-ipcMain.handle('close-me', () => {
+ipcMain.handle("close-me", () => {
   win.close();
-})
+});

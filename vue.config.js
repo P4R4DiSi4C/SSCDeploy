@@ -2,7 +2,7 @@ module.exports = {
   lintOnSave: true,
   pluginOptions: {
     electronBuilder: {
-      preload: 'src/preload.js',
+      preload: "src/preload.js"
     }
   },
   css: {
@@ -11,6 +11,7 @@ module.exports = {
       sass: {
         prependData: `
             @import "@/global.scss";
+            @import "~vue-ionicons/ionicons.scss";  
           `
       }
     }
