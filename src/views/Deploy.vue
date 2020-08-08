@@ -1,6 +1,6 @@
 <template>
   <div class="deployment">
-    <div class="deployment__header"></div>
+    <div class="deployment__header">HEADER</div>
     <div class="deployment__body">
       <deployment-options />
     </div>

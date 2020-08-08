@@ -1,9 +1,13 @@
 <template>
-  <div class="latest-transactions">
-    <div class="latest-transactions--title">Options de déploiement</div>
-    <div class="latest-transactions__body">
-      <div class="latest-transactions__body__row">
-        <div class="latest-transactions__body__row--switch pad">
+  <div class="deployment-options">
+    <div class="deployment-options--title">Options de déploiement</div>
+    <div class="deployment-options__body">
+      <div class="deployment-options__body__row">
+        <div class="deployment-options__body__row--option pad">
+          <span>Suspension USB Séléctive</span>
+          <span class="desc">Suspend la mise en veille USB</span>
+        </div>
+        <div class="deployment-options__body__row--switch pad">
           <label class="switch">
             <input type="checkbox" />
             <div>
@@ -11,10 +15,47 @@
             </div>
           </label>
         </div>
-        <div class="latest-transactions__body__row--block pad">157.162</div>
-        <div class="latest-transactions__body__row--amount pad">
-          <span class="positive">9.000</span>
-          <span class="currency">NΛSH</span>
+      </div>
+      <div class="deployment-options__body__row">
+        <div class="deployment-options__body__row--option pad">
+          <span>Config Firefox</span>
+          <span class="desc">Configure firefox</span>
+        </div>
+        <div class="deployment-options__body__row--switch pad">
+          <label class="switch">
+            <input type="checkbox" />
+            <div>
+              <span></span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="deployment-options__body__row">
+        <div class="deployment-options__body__row--option pad">
+          <span>Mise en veille secteur</span>
+          <span class="desc">Désactive la mise en veille sous secteur</span>
+        </div>
+        <div class="deployment-options__body__row--switch pad">
+          <label class="switch">
+            <input type="checkbox" />
+            <div>
+              <span></span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="deployment-options__body__row">
+        <div class="deployment-options__body__row--option pad">
+          <span>Mise en veille NIC</span>
+          <span class="desc">Désactive la mise en veille cartes réseau</span>
+        </div>
+        <div class="deployment-options__body__row--switch pad">
+          <label class="switch">
+            <input type="checkbox" />
+            <div>
+              <span></span>
+            </div>
+          </label>
         </div>
       </div>
     </div>
@@ -22,21 +63,13 @@
 </template>
 
 <style lang="scss" scoped>
-.latest-transactions {
+.deployment-options {
   position: relative;
   width: 100%;
   height: 100%;
 
   .pad {
     padding: 17px;
-  }
-
-  .positive {
-    color: $positive-color;
-  }
-
-  .negative {
-    color: $negative-color;
   }
 
   &--title {
@@ -47,6 +80,8 @@
   }
 
   &__body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     &__row {
       display: flex;
       justify-content: space-between;
@@ -150,34 +185,15 @@
         }
       }
 
-      &--block {
-        font-size: 24px;
-        // font-weight: bold;
-      }
-
-      &--amount {
-        font-size: 25px;
-        font-weight: bold;
-
-        .currency {
-          margin-left: 5px;
-          font-size: 11px;
-          font-weight: lighter;
-        }
-      }
-
-      &--date {
+      &--option {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        font-weight: bold;
+        width: 45%;
 
-        .day {
-          font-size: 23px;
-          font-weight: bold;
-        }
-
-        .month {
-          // font-weight: bold;
+        .desc {
+          font-size: 11px;
+          font-weight: lighter;
         }
       }
     }
