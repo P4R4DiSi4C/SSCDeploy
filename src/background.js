@@ -98,6 +98,15 @@ ipcMain.handle('close-window', () => {
   win.close();
 });
 
-ipcMain.handle('PING', async(event, args) => {
+ipcMain.handle('minimize-window', () => {
+  win.minimize();
+});
+
+ipcMain.handle('maximize-window', () => {
+  win.maximize();
+});
+
+ipcMain.handle('PING', async (event, args) => {
+  console.log('IPCMain: PONG');
   return 'PONG';
 });

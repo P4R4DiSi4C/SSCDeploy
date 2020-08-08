@@ -18,6 +18,11 @@ export default {
   components: {
     TaskBar,
     SideBar
+  },
+  async mounted() {
+    await console.log("VUE -> PRELOAD: PING");
+    const ping = await window.api.Ping();
+    console.log("IPCMain -> VUE: " + ping);
   }
 };
 </script>

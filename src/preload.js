@@ -4,7 +4,15 @@ contextBridge.exposeInMainWorld('api', {
   CloseWindow: () => {
     ipcRenderer.invoke('close-window');
   },
-  Ping: async(args) => {
+  MinimizeWindow: () => {
+    ipcRenderer.invoke('minimize-window');
+  },
+  MaximizeWindow: () => {
+    //TODO: DETECT IF MAXIMIZED AND BACK TO NORMAL
+    ipcRenderer.invoke('maximize-window');
+  },
+  Ping: async (args) => {
+    console.log('PRELOAD -> IPCMain: PING');
     return await ipcRenderer.invoke('PING', args);
   }
   /*subscribe: (channel, listener) => {

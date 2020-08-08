@@ -3,10 +3,14 @@
     <div class="taskbar__drag"></div>
     <div class="taskbar__buttons">
       <div class="taskbar__buttons--button close" @click="close">
-        <div class="cross"></div>
+        <div class="cross" />
       </div>
-      <div class="taskbar__buttons--button maximize"></div>
-      <div class="taskbar__buttons--button minimize"></div>
+      <div class="taskbar__buttons--button minimize" @click="minimize">
+        <div class="min" />
+      </div>
+      <div class="taskbar__buttons--button maximize" @click="maximize">
+        <div class="max" />
+      </div>
     </div>
   </div>
 </template>
@@ -16,11 +20,13 @@ export default {
   methods: {
     close() {
       window.api.CloseWindow();
+    },
+    minimize() {
+      window.api.MinimizeWindow();
+    },
+    maximize() {
+      window.api.MaximizeWindow();
     }
-  },
-  async mounted() {
-    const ping = await window.api.Ping();
-    console.log(ping);
   }
 };
 </script>
@@ -48,6 +54,67 @@ export default {
     margin-left: 15px;
     display: flex;
 
+    &:hover {
+      .cross {
+        height: 100%;
+        width: 100%;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 8px;
+          height: 1px;
+          background-color: rgba(50, 50, 50, 0.9);
+        }
+        &::before {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        &::after {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+      }
+
+      .min {
+        height: 100%;
+        width: 100%;
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 8px;
+        height: 1px;
+        background-color: rgba(50, 50, 50, 0.9);
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+
+      .max {
+        height: 100%;
+        width: 100%;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 8px;
+          height: 1px;
+          background-color: rgba(50, 50, 50, 0.9);
+        }
+        &::before {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        &::after {
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
     &--button {
       margin-right: 8px;
       width: 14px;
@@ -56,42 +123,17 @@ export default {
 
       &.close {
         position: relative;
-        background-color: $negative-color;
-
-        &:hover .cross {
-          height: 100%;
-          width: 100%;
-
-          &::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            width: 11px;
-            height: 3px;
-            background-color: rgba(50, 50, 50, 0.5);
-          }
-
-          &::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            width: 11px;
-            height: 3px;
-            background-color: rgba(50, 50, 50, 0.5);
-          }
-        }
-      }
-
-      &.maximize {
-        background-color: $medium-color;
+        background-color: $mac-close-color;
       }
 
       &.minimize {
-        background-color: $positive-color;
+        position: relative;
+        background-color: $mac-minimize-color;
+      }
+
+      &.maximize {
+        position: relative;
+        background-color: $mac-maximize-color;
       }
     }
   }
