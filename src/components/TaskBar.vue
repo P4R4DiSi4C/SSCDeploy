@@ -15,8 +15,12 @@
 export default {
   methods: {
     close() {
-      window.api.electronIpcInvoke("close-me");
+      window.api.CloseWindow();
     }
+  },
+  async mounted() {
+    const ping = await window.api.Ping();
+    console.log(ping);
   }
 };
 </script>

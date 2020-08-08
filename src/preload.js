@@ -1,8 +1,11 @@
-const { contextBridge, ipcRenderer } = require("electron");
+const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld("api", {
-  electronIpcInvoke: (channel, ...args) => {
-    ipcRenderer.invoke(channel, args);
+contextBridge.exposeInMainWorld('api', {
+  CloseWindow: () => {
+    ipcRenderer.invoke('close-window');
+  },
+  Ping: async(args) => {
+    return await ipcRenderer.invoke('PING', args);
   }
   /*subscribe: (channel, listener) => {
       const subscription = (event, ...args) => listener(...args);
