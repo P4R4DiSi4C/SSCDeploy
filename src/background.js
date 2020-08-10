@@ -95,7 +95,7 @@ if (isDevelopment) {
 }
 
 ipcMain.handle('close-window', () => {
-  win.close();
+  win.destroy();
 });
 
 ipcMain.handle('minimize-window', () => {
@@ -103,10 +103,30 @@ ipcMain.handle('minimize-window', () => {
 });
 
 ipcMain.handle('maximize-window', () => {
-  win.maximize();
+  if (win.isMaximized()) {
+    win.unmaximize();
+  }
+  else {
+    win.maximize();
+  }
 });
 
 ipcMain.handle('PING', async (event, args) => {
   console.log('IPCMain: PONG');
   return 'PONG';
 });
+
+
+let normalizedPath = path.resolve(__dirname, "../src/handlers");
+
+require("fs").readdirSync(normalizedPath).forEach(function (file) {
+  let curclass = require(file);
+
+  console.log(curclass);
+});
+/*
+for (let i = 0; i < ipc_handlers.length; i++) {
+  let Handler = ipc_handlers[i];
+  let h = new Handler();
+  h.configure();
+}*/

@@ -23,6 +23,8 @@ export default {
     await console.log("VUE -> PRELOAD: PING");
     const ping = await window.api.Ping();
     console.log("IPCMain -> VUE: " + ping);
+
+    await window.api.USBHandler();
   }
 };
 </script>
