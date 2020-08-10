@@ -24,6 +24,9 @@ export default {
     const ping = await window.api.Ping();
     console.log("IPCMain -> VUE: " + ping);
 
+
+    // ici je le call, mais du coup il connait aps, vu que pas register...
+    
     await window.api.USBHandler();
   }
 };

@@ -1,10 +1,12 @@
 'use strict';
 
-const path = require('path');
+import path from 'path';
+import fs from 'fs';
 import { app, protocol, BrowserWindow, nativeTheme, ipcMain } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 const isDevelopment = process.env.NODE_ENV !== 'production';
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -117,16 +119,10 @@ ipcMain.handle('PING', async (event, args) => {
 });
 
 
-let normalizedPath = path.resolve(__dirname, "../src/handlers");
-
-require("fs").readdirSync(normalizedPath).forEach(function (file) {
-  let curclass = require(file);
-
-  console.log(curclass);
+// ./ or process.cwd() = the same
+fs.readdirSync(`./src/handlers`)
+  .filter(file => (file.slice(-3) === '.js'))
+  .forEach((file) => {
+    require(`./handlers/${file}`);
+    console.log("Handler loaded ===>" + file);
 });
-/*
-for (let i = 0; i < ipc_handlers.length; i++) {
-  let Handler = ipc_handlers[i];
-  let h = new Handler();
-  h.configure();
-}*/
