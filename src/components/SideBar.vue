@@ -3,12 +3,7 @@
     <div class="sidebar__menu">
       <router-link class="sidebar__menu--link" to="/">Dashboard</router-link>
       <router-link class="sidebar__menu--link" to="/deploy">Déploiement</router-link>
-      <router-link class="sidebar__menu--link" to="/transfer">Transfer</router-link>
-      <router-link class="sidebar__menu--link" to="/account">Account</router-link>
-      <router-link class="sidebar__menu--link" to="/explorer">Explorer</router-link>
-      <router-link class="sidebar__menu--link" to="/peers">Peers</router-link>
-      <router-link class="sidebar__menu--link" to="/settings">Settings</router-link>
-      <router-link class="sidebar__menu--link" to="/diagnostics">Diagnostics</router-link>
+      <router-link class="sidebar__menu--link" to="/transfer">Quotas</router-link>
     </div>
   </div>
 </template>

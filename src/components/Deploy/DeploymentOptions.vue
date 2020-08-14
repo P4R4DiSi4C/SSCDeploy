@@ -93,7 +93,7 @@
       &--switch {
         .switch {
           --line: #e8ebfb;
-          --dot: #28cd41;
+          --dot: #ff0000;
           --circle: #d3d4ec;
           --background: #fff;
           --duration: 0.3s;
