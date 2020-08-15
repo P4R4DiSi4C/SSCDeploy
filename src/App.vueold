@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <task-bar />
-
-    <side-bar id="app__sidebar" />
-    <router-view id="app__content" />
+    <div id="app__body">
+      <side-bar />
+      <div id="app__body__content">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,21 +40,16 @@ body {
   overflow: hidden;
 
   #app {
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-areas: "sidebar main";
-    grid-template-columns: minmax(145px, 215px) auto;
-    grid-template-rows: 1fr;
+    height: 100%;
 
-    &__sidebar {
-      grid-area: sidebar;
-    }
+    &__body {
+      height: 100%;
+      display: flex;
 
-    &__content {
-      grid-area: main;
-      overflow: hidden;
-      padding: 25px;
+      &__content {
+        flex: 1;
+        padding: 25px;
+      }
     }
   }
 }

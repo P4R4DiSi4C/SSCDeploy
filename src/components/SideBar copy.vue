@@ -10,6 +10,8 @@
 
 <style lang="scss" scoped>
 .sidebar {
+  height: 100%;
+  width: 215px;
   box-shadow: inset -7px 0 30px -7px rgba(0, 0, 0, 0.05);
 
   &__menu {

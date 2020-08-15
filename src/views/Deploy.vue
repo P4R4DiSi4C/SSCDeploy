@@ -39,10 +39,8 @@ export default {
     "body"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  grid-gap: 10px;
-
-  height: 100%;
+  grid-template-rows: 55px 1fr 55px;
+  grid-gap: 15px;
 
   &__header {
     grid-area: header;
@@ -56,10 +54,7 @@ export default {
     grid-area: body;
     display: flex;
     justify-content: space-between;
-
-    &--deployment-options {
-      width: 100%;
-    }
+    overflow: scroll;
   }
 
   &__footer {
