@@ -3,21 +3,19 @@
     <div class="deployment-options--title">Options de déploiement</div>
     <div class="deployment-options__body">
       <option-component
-        v-for="option in options"
-        :key="option.id"
+        v-for="(option,index) in options"
+        :key="index"
         :title="option.title"
         :desc="option.desc"
-        :checked.sync="option.checked"
+        :checked="option.checked"
+        :onchange="() => check(index)"
       />
     </div>
-    <h2>{{ this.counter }}aa</h2>
-    <button @click="increment">increment</button>
   </div>
 </template>
 
 <script>
 import OptionComponent from "./OptionComponent.vue";
-import options from "./Options.js";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -25,18 +23,16 @@ export default {
     OptionComponent,
   },
   data() {
-    return {
-      options,
-    };
+    return {};
   },
   computed: {
     ...mapGetters({
-      counter: "deploy/counter",
+      options: "deploy/options",
     }),
   },
   methods: {
     ...mapActions({
-      increment: "deploy/increment",
+      check: "deploy/check",
     }),
   },
 };

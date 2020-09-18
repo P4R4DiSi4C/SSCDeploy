@@ -6,11 +6,7 @@
     </div>
     <div class="option--switch">
       <label class="checkbox">
-        <input
-          type="checkbox"
-          :checked="checked"
-          @change="$emit('update:checked', $event.target.checked)"
-        />
+        <input type="checkbox" :checked="checked" @change="onchange" />
         <div>
           <span></span>
         </div>
@@ -26,6 +22,7 @@ export default {
     title: { type: String, required: true },
     desc: { type: String, required: true },
     checked: { type: Boolean, required: true },
+    onchange: { type: Function, required: true },
   },
 };
 </script>
