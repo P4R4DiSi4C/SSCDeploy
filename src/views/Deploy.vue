@@ -33,6 +33,9 @@ export default {
 
 <style lang="scss" scoped>
 .deployment {
+  ::-webkit-scrollbar {
+    display: none;
+  }
   display: grid;
   grid-template-areas:
     "header"

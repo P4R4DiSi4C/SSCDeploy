@@ -10,12 +10,15 @@
         :checked.sync="option.checked"
       />
     </div>
+    <h2>{{ this.counter }}aa</h2>
+    <button @click="increment">increment</button>
   </div>
 </template>
 
 <script>
 import OptionComponent from "./OptionComponent.vue";
 import options from "./Options.js";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
@@ -25,6 +28,16 @@ export default {
     return {
       options,
     };
+  },
+  computed: {
+    ...mapGetters({
+      counter: "deploy/counter",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      increment: "deploy/increment",
+    }),
   },
 };
 </script>
