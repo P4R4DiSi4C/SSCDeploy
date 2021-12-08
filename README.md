@@ -1,4 +1,7 @@
-# Electron + Vue.js
+# SSCDeploy Electron + Vue.js (Test project)
+## Based on @iamnashdev front project
+
+![alt text](https://i.imgur.com/hjVAoPm.png)
 
 ## Project setup
 ```
@@ -19,6 +22,3 @@ yarn electron:build
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
