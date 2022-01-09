@@ -1,5 +1,5 @@
 # SSCDeploy Electron + Vue.js (Test project)
-## Based on @iamnashdev front project
+Based on @iamnashdev front project
 
 ![alt text](https://i.imgur.com/hjVAoPm.png)
 
